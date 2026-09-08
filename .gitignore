@@ -1,11 +1,48 @@
-# Скомпилированные бинарники
+# Go binaries
+
 *.exe
+*.exe~
+*.dll
+*.so
+*.dylib
 *.test
 
-# Отчёты покрытия тестами
-coverage.out
+# Go build output
 
-# Служебные файлы редакторов и ОС
+/bin/
+/build/
+/dist/
+
+# Test coverage
+
+coverage.out
+coverage.html
+
+# Go workspace
+
+go.work
+go.work.sum
+
+# IDE
+
 .vscode/
 .idea/
+
+# OS
+
 .DS_Store
+Thumbs.db
+
+# Temporary files
+
+*.tmp
+*.temp
+*.swp
+*.swo
+
+# Environment / secrets
+
+.env
+.env.*
+!.env.example
+
