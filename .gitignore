@@ -1,11 +1,25 @@
-# Go binaries
+# =========================
+
+# Go
+
+# =========================
+
+# Compiled binaries
 
 *.exe
 *.exe~
 *.dll
 *.so
 *.dylib
+
+# Go test binaries
+
 *.test
+
+# Coverage files
+
+coverage.out
+coverage.html
 
 # Go build output
 
@@ -13,36 +27,65 @@
 /build/
 /dist/
 
-# Test coverage
-
-coverage.out
-coverage.html
-
-# Go workspace
+# Go workspace files
 
 go.work
 go.work.sum
 
-# IDE
+# =========================
+
+# IDE / Editor
+
+# =========================
+
+# VS Code
 
 .vscode/
+
+# JetBrains IDEs
+
 .idea/
 
-# OS
+# Editor swap / temporary files
 
-.DS_Store
-Thumbs.db
-
-# Temporary files
-
-*.tmp
-*.temp
 *.swp
 *.swo
+*.tmp
+*.temp
+
+# =========================
+
+# Operating system
+
+# =========================
+
+# macOS
+
+.DS_Store
+
+# Windows
+
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# =========================
 
 # Environment / secrets
+
+# =========================
+
+# Local environment files
 
 .env
 .env.*
 !.env.example
+
+# =========================
+
+# Logs
+
+# =========================
+
+*.log
 
