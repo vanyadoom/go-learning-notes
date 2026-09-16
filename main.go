@@ -2,24 +2,24 @@ package main
 
 import "fmt"
 
-func main() {
-	var n int
-
-	fmt.Scan(&n)
-
+func sumEven(a, b int) int {
 	sum := 0
 
-	for {
-		if n == 0 {
-			break
+	for i := a; i <= b; i++ {
+		if i%2 == 0 {
+			sum += i
 		}
-
-		if n%2 == 0 {
-			sum += n
-		}
-
-		fmt.Scan(&n)
 	}
 
-	fmt.Println("Сумма чётных:", sum)
+	return sum
+}
+
+func main() {
+	var a, b int
+
+	fmt.Scan(&a, &b)
+
+	result := sumEven(a, b)
+
+	fmt.Println("Сумма чётных чисел:", result)
 }
