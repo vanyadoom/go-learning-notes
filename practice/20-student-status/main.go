@@ -16,6 +16,10 @@ func (s Student) isGradeAtLeast(minGrade int) bool {
 	return s.Grade >= minGrade
 }
 
+func (s Student) IsExcellent() bool {
+	return s.Grade >= 5
+}
+
 func (s *Student) SetGrade(grade int) {
 	s.Grade = grade
 }
@@ -42,6 +46,7 @@ func main() {
 		Grade: grade,
 	}
 	gradeOK := student.isGradeAtLeast(4)
+	excellent := student.IsExcellent()
 	oldGrade := student.Grade
 
 	status := student.Status()
@@ -53,5 +58,5 @@ func main() {
 	fmt.Println("Оценка не ниже 4: ", gradeOK)
 	fmt.Println("Старая оценка: ", oldGrade)
 	fmt.Println("Новая оценка: ", student.Grade)
-
+	fmt.Println("Отличник: ", excellent)
 }
