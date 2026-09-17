@@ -16,6 +16,10 @@ func (s Student) isGradeAtLeast(minGrade int) bool {
 	return s.Grade >= minGrade
 }
 
+func (s Student) Info() string {
+	return fmt.Sprintf("Имя: %s, возраст: %d, оценка: %d", s.Name, s.Age, s.Grade)
+}
+
 func (s *Student) SetGrade(grade int) {
 	s.Grade = grade
 }
@@ -35,6 +39,7 @@ func main() {
 		Grade: grade,
 	}
 
+	info := student.Info()
 	adult := student.isAdult()
 	gradeOK := student.isGradeAtLeast(4)
 	oldGrade := student.Grade
@@ -51,4 +56,5 @@ func main() {
 	fmt.Println("Новая оценка: ", student.Grade)
 	fmt.Println("Старый возраст: ", oldAge)
 	fmt.Println("Новый возраст: ", student.Age)
+	fmt.Println("Информация: ", info)
 }
