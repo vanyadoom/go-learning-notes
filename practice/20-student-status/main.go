@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"errors"
+	"fmt"
+)
 
 type Student struct {
 	Name  string
@@ -20,8 +23,16 @@ func (s Student) IsExcellent() bool {
 	return s.Grade >= 5
 }
 
-func (s *Student) SetGrade(grade int) {
+func (s Student) CanGraduate() bool {
+	return s.isAdult() && s.isGradeAtLeast(4)
+}
+
+func (s *Student) SetGrade(grade int) error {
+	if grade < 1 || grade > 5 {
+		return errors.New("Неверная оценка")
+	}
 	s.Grade = grade
+	return nil
 }
 
 func (s *Student) SetAge(age int) {
@@ -45,13 +56,18 @@ func main() {
 		Age:   age,
 		Grade: grade,
 	}
-	gradeOK := student.isGradeAtLeast(4)
-	excellent := student.IsExcellent()
-	oldGrade := student.Grade
 
+	gradeOK := student.isGradeAtLeast(4)
 	status := student.Status()
 
-	student.SetGrade(5)
+	oldGrade := student.Grade
+	err := student.SetGrade(5)
+	if err != nil {
+		fmt.Println("Ошибка:", err)
+		return
+	}
+	excellent := student.IsExcellent()
+	canGraduate := student.CanGraduate()
 
 	fmt.Println("Имя: ", student.Name)
 	fmt.Println("Статус: ", status)
@@ -59,4 +75,5 @@ func main() {
 	fmt.Println("Старая оценка: ", oldGrade)
 	fmt.Println("Новая оценка: ", student.Grade)
 	fmt.Println("Отличник: ", excellent)
+	fmt.Println("Можно окончить обучение: ", canGraduate)
 }
