@@ -16,7 +16,7 @@ func (s *Student) SetAge(age int) {
 	s.Age = age
 }
 
-func (s Student) isGradeAtLeast(minGrade int) bool {
+func (s Student) isGradeAtLeast (minGrade int) bool {
 	return s.Grade >= minGrade
 }
 
@@ -46,9 +46,12 @@ func main() {
 	student.SetAge(30)
 	student.SetGrade(5)
 
+	gradeAtLeastFour := student.isGradeAtLeast(4)
+
 	fmt.Println("Совершеннолетний: ", adult)
 	fmt.Println("Старая оценка: ", oldGrade)
 	fmt.Println("Новая оценка: ", student.Grade)
+	fmt.Println("Оценка не ниже 4: ", gradeAtLeastFour)
 	fmt.Println("Старый возраст: ", oldAge)
 	fmt.Println("Новый возраст: ", student.Age)
 }
