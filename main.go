@@ -2,24 +2,24 @@ package main
 
 import "fmt"
 
-func sumEven(a, b int) int {
-	sum := 0
+type Student struct {
+	Age   int
+	Grade int
+}
 
-	for i := a; i <= b; i++ {
-		if i%2 == 0 {
-			sum += i
-		}
-	}
-
-	return sum
+func (s Student) CanGraduate() bool {
+	return s.Age >= 18 && s.Grade >= 4
 }
 
 func main() {
-	var a, b int
+	student := Student{
+		Age:   18,
+		Grade: 3,
+	}
 
-	fmt.Scan(&a, &b)
+	canGraduate := student.CanGraduate()
 
-	result := sumEven(a, b)
+	student.Grade = 5
 
-	fmt.Println("Сумма чётных чисел:", result)
+	fmt.Println(canGraduate)
 }
