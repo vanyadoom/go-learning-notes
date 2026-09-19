@@ -2,24 +2,15 @@ package main
 
 import "fmt"
 
-type Student struct {
-	Age   int
-	Grade int
-}
-
-func (s Student) CanGraduate() bool {
-	return s.Age >= 18 && s.Grade >= 4
-}
-
 func main() {
-	student := Student{
-		Age:   18,
-		Grade: 3,
+	var age int
+
+	_, err := fmt.Scan(&age)
+
+	if err != nil {
+		fmt.Println("Ошибка")
+		return
 	}
 
-	canGraduate := student.CanGraduate()
-
-	student.Grade = 5
-
-	fmt.Println(canGraduate)
+	fmt.Println("Возраст:", age)
 }
