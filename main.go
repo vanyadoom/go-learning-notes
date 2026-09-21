@@ -4,11 +4,9 @@ import "fmt"
 
 func main() {
 
-	x := 10
+	var ages map[string]int
 
-	if true {
-		x := 20
-		fmt.Println(x)
-	}
-	fmt.Println(x)
+	ages["Ivan"] = 25
+
+	fmt.Println(ages["Ivan"])
 }
