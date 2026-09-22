@@ -1,26 +1,26 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strconv"
+)
+
+func ProcessInput(input string) (string, error) {
+	n, err := strconv.Atoi(input)
+	if err != nil {
+		return "", fmt.Errorf("Не удалось прочитать число: %w", err)
+	}
+	if n%2 == 0 {
+		return "Чётное", nil
+	}
+	return "Нечётное", nil
+}
 
 func main() {
-	var a, b int
-
-	fmt.Scan(&a, &b)
-
-	if a > b {
-		a, b = b, a
+	result, err := ProcessInput("42")
+	if err != nil {
+		fmt.Println("Ошибка:", err)
+		return
 	}
-
-	sum := 0
-	count := 0
-
-	for i := a; i <= b; i++ {
-		if i%2 == 0 {
-			sum += i
-			count++
-		}
-	}
-
-	fmt.Println("Сумма чётных:", sum)
-	fmt.Println("Количество чётных:", count)
+	fmt.Println("Результат:", result) // Выведет: Результат: Чётное
 }
