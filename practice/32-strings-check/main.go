@@ -10,6 +10,6 @@ func main() {
 	fmt.Println("Строка: ", s)
 	fmt.Println("Длина в байтах: ", len(s))
 	fmt.Println("Количество символов: ", len([]rune(s)))
-	fmt.Printf("Первый символ: %c\n", []rune(s)[0])
-
+	fmt.Println("Первый байт: ", s[0])
+	fmt.Println("Первый символ: ", []rune(s)[0])
 }
