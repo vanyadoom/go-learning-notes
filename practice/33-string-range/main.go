@@ -5,15 +5,13 @@ import (
 )
 
 func main() {
-	var r string
-	fmt.Scan(&r)
+	var text string
+	fmt.Scanln(&text)
 
 	count := 0
 
-	for _, r := range r {
-		if r == 'а' {
-			count++
-		}
+	for range text {
+		count++
 	}
 	fmt.Println(count)
 }
