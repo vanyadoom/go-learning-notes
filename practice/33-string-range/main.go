@@ -10,8 +10,9 @@ func main() {
 
 	count := 0
 
-	for range text {
+	for _, r := range text {
+		fmt.Println(string(r))
 		count++
 	}
-	fmt.Println(count)
+	fmt.Println("Количество символов: ", count)
 }
