@@ -3,10 +3,13 @@ package main
 import "fmt"
 
 func main() {
-	numbers := []int{4, 8, 12, 16}
+	text := "ЯAБ" // Я и Б — кириллические, A — латинская
 
-	index := len(numbers) - 2
-
-	fmt.Println(index)
-	fmt.Println(numbers[index])
+	for i, r := range text {
+		fmt.Println(i, r)
+	}
 }
+
+
+// i = 0 2 3 
+// r = Я А Б 
