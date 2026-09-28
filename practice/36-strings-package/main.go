@@ -6,14 +6,16 @@ import (
 )
 
 func main() {
-	var text string
-	var word string
-
-	fmt.Scan(&text, &word)
+	var text string = "Go go Go"
+	var word string = "go"
 
 	text = strings.ToLower(text)
 	word = strings.ToLower(word)
 
-	fmt.Println(strings.Contains(text, word))
+	if strings.Contains(text, word) {
+		fmt.Println(strings.Count(text, word))
+	} else {
+		fmt.Println(0)
+	}
 
 }
