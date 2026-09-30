@@ -6,13 +6,17 @@ import (
 )
 
 func main() {
-	text := "15"
+
+	var text string
+
+	fmt.Scanln(&text)
+
 	num, err := strconv.Atoi(text)
+
 	if err != nil {
-		fmt.Println(err)
+		fmt.Println("Ошибка преобразования")
+		return
+	} else {
+		fmt.Println(num + 10)
 	}
-	result := num + 5
-	textResult := strconv.Itoa(result)
-	fmt.Println(result)
-	fmt.Println(textResult)
 }
