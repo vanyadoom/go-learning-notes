@@ -7,16 +7,19 @@ import (
 
 func main() {
 
-	var text string
-
-	fmt.Scanln(&text)
+	text := "25"
 
 	num, err := strconv.Atoi(text)
 
 	if err != nil {
-		fmt.Println("Ошибка преобразования")
+		fmt.Println("Ошибка")
 		return
-	} else {
-		fmt.Println(num + 10)
 	}
+	result := num + 5
+
+	fmt.Println(result)
+
+	textResult := strconv.Itoa(result)
+
+	fmt.Println(textResult)
 }
