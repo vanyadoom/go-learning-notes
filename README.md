@@ -4,58 +4,65 @@
 
 Здесь я последовательно изучаю Go с нуля, сохраняю конспекты, практические задания, разборы ошибок и небольшие проекты.
 
-Основная цель — не просто изучить синтаксис, а постепенно дойти до уровня **Junior Go Backend Developer / Go Internship** и уметь самостоятельно писать, читать и отлаживать Go-код.
+Основная цель — не просто изучить синтаксис, а постепенно дойти до уровня **Junior Go Backend Developer / Go Internship** и уметь самостоятельно писать, читать, отлаживать и постепенно проектировать Go-код.
 
 ---
 
 ## Current status
 
-**Текущий этап:** Go Fundamentals  
-**Текущая практика:** `practice/32-strings-check`  
-**Текущая тема:** `string`, `byte`, `rune`, UTF-8  
-**Статус урока 32:** в процессе
+**Текущий этап:** Standard Library / укрепление Go Fundamentals  
+**Текущий урок:** `38`  
+**Текущая тема:** пакет `time`  
+**Текущая практика:** `practice/38-time`  
+**Статус урока 38:** теория изучается, практика впереди
 
-Последний контрольный тест:
-
-```text
-41 / 50
-82%
-```
-
-Текущая приблизительная статистика обучения:
+Недавно закрыты:
 
 ```text
-Освоение изученного материала    82%
-
-Go Fundamentals                 ~40%
-Junior Go Backend roadmap        ~8%
-Полный Go roadmap                ~3%
+32 — strings / bytes / rune / UTF-8
+33 — range по string
+34 — поиск символов
+35 — замена символов
+36 — package strings
+37 — package strconv
+38 — package time          ← сейчас здесь
 ```
 
-Проценты являются моей учебной метрикой и показывают не количество просмотренных уроков, а фактически пройденные и закреплённые навыки.
+Текущая приблизительная статистика:
+
+```text
+Освоение уже изученного материала    ~85%
+
+Go Fundamentals                      ~60%
+Путь до Junior Go Backend            ~15%
+Полный Go / Backend roadmap           ~7%
+```
+
+Проценты являются учебной метрикой. Они показывают не количество просмотренных тем, а степень фактически изученного и закреплённого материала.
 
 ---
 
-## Цель обучения
-
-Мой путь:
+## Текущая позиция
 
 ```text
 Go Fundamentals
         ↓
-Tooling / Modules
+Strings / UTF-8
         ↓
 Standard Library
         ↓
-Interfaces / Errors
+strings        ✅
+strconv        ✅
+time           🔄
+os             ⏳
+io             ⏳
+bufio          ⏳
+        ↓
+JSON / HTTP
         ↓
 Testing
         ↓
 Concurrency
-        ↓
-HTTP / REST API
-        ↓
-JSON
         ↓
 SQL / PostgreSQL
         ↓
@@ -64,31 +71,29 @@ Backend Projects
 Junior Go Backend Developer
 ```
 
-После этого обучение продолжится в сторону более продвинутого backend, архитектуры, observability, messaging, distributed systems и других тем.
+Сейчас основной язык уже перестаёт быть просто набором отдельных конструкций. Следующая большая цель — перейти от упражнений к использованию стандартной библиотеки, а затем к настоящим backend-задачам.
 
 ---
 
 ## Как проходит обучение
 
-Каждая новая тема изучается постепенно.
-
 Обычная структура урока:
 
 ```text
 1. Цель урока
-2. Связь с уже изученным материалом
+2. Связь с уже изученным
 3. Короткое повторение
-4. Одна новая идея
-5. Prediction — предсказать результат кода
-6. Небольшая самостоятельная практика
-7. Разбор решения
-8. Bug Hunt
-9. Самостоятельная задача без шаблона
-10. Code Review
-11. Challenge
-12. Краткий итог
-13. Обновление статистики
-14. Git commit
+4. Новая концепция
+5. Prediction
+6. Мини-практика
+7. Bug Hunt
+8. Самостоятельная задача
+9. Code Review
+10. Закрепление слабых мест
+11. Мини-контрольная
+12. Конспект
+13. Git commit
+14. Progress Report
 ```
 
 Главный принцип:
@@ -99,7 +104,7 @@ Junior Go Backend Developer
 → применил
 → ошибся
 → разобрал ошибку
-→ применил снова
+→ повторил
 → начал использовать автоматически
 ```
 
@@ -107,9 +112,9 @@ Junior Go Backend Developer
 
 ---
 
-## Уже изучено
+# Уже изучено
 
-### Go basics
+## Go basics
 
 - `package main`
 - `import`
@@ -125,13 +130,15 @@ Junior Go Backend Developer
 - `%`
 - `fmt.Println`
 - `fmt.Scan`
-- обработка ошибок ввода
+- `fmt.Scanln`
 - `error`
 - `nil`
 - `_`
 - `return`
 
-### Control flow
+---
+
+## Control flow
 
 - `if`
 - `else`
@@ -142,14 +149,16 @@ Junior Go Backend Developer
 - `!`
 - `switch`
 
-### Loops
+---
+
+## Loops
 
 - `for`
 - бесконечный `for`
 - `break`
 - счётчики
 - накопители
-- диапазоны
+- `range`
 - граничные условия
 - обмен значений
 
@@ -157,16 +166,22 @@ Junior Go Backend Developer
 a, b = b, a
 ```
 
-### Functions
+---
+
+## Functions
 
 - объявление функций
 - параметры
 - аргументы
 - возвращаемые значения
+- множественный возврат
 - вызов функций
 - область видимости
+- ранний `return`
 
-### Arrays and slices
+---
+
+## Arrays and slices
 
 - arrays
 - indexes
@@ -175,8 +190,12 @@ a, b = b, a
 - `cap`
 - `append`
 - backing array
+- последний индекс
+- границы slice
 
-### Maps
+---
+
+## Maps
 
 - создание `map`
 - `make`
@@ -186,7 +205,9 @@ a, b = b, a
 - `range`
 - особенности порядка обхода
 
-### Structs
+---
+
+## Structs
 
 - создание `struct`
 - поля
@@ -194,14 +215,18 @@ a, b = b, a
 - копирование struct
 - отличие struct от map
 
-### Methods
+---
+
+## Methods
 
 - methods
 - receiver
 - value receiver
 - pointer receiver
 
-### Pointers
+---
+
+## Pointers
 
 - `&`
 - `*`
@@ -209,76 +234,234 @@ a, b = b, a
 - разыменование
 - изменение значения через pointer
 
-### Strings
-
-- `string`
-- `len(string)`
-- индексирование строки
-- `byte`
-- `[]byte`
-- базовое понимание UTF-8
-- `rune`
-- `[]rune`
-
 ---
 
-## Текущая тема
+# Strings / UTF-8
 
-Сейчас закрепляется разница между:
+Пройден отдельный блок по строкам.
 
-```text
-string
-byte
-rune
-```
+Изучено:
+
+- `string`
+- `byte`
+- `rune`
+- UTF-8
+- `len(string)`
+- `[]rune`
+- индексирование строк
+- `range` по строке
+- поиск символов
+- замена символов
+- построение новой строки
 
 Ключевая модель:
 
 ```text
-len(s)
-→ количество байтов
+len(string)
+→ общее количество байтов
 
-s[i]
-→ byte
+len([]rune(string))
+→ количество Unicode-символов
 
-[]byte(s)
-→ последовательность байтов
+i в range
+→ байтовый индекс начала rune
 
-[]rune(s)
-→ последовательность Unicode code points
+r в range
+→ текущий rune
+
+fmt.Println(r)
+→ числовое Unicode-значение
+
+fmt.Println(string(r))
+→ сам символ
+```
+
+После контрольной тема была отдельно доведена до автоматизма.
+
+Результаты закрепления:
+
+```text
+len(string)          9 / 10
+i в range           10 / 10
+смешанный раунд      8 / 10
+финальный стресс     5 / 5
+```
+
+---
+
+# Standard Library
+
+## `strings` ✅
+
+Изучено:
+
+```go
+strings.Contains
+strings.Count
+strings.ReplaceAll
+strings.ToLower
+strings.ToUpper
+```
+
+Также изучено комбинирование функций:
+
+```text
+ToLower + Contains
+→ поиск без учёта регистра
+
+ToLower + Count
+→ подсчёт без учёта регистра
+```
+
+Мини-контрольная:
+
+```text
+5 / 5
+```
+
+Практика:
+
+```text
+practice/36-strings-package
+```
+
+Конспект:
+
+```text
+notes/strings-package.md
+```
+
+---
+
+## `strconv` ✅
+
+Изучено:
+
+```go
+strconv.Atoi
+strconv.Itoa
+```
+
+Главная модель:
+
+```text
+Atoi
+string → int
+
+Itoa
+int → string
+```
+
+Также закреплено:
+
+```text
+err == nil
+→ ошибки нет
+
+err != nil
+→ ошибка есть
+
+return
+→ завершить текущую функцию
 ```
 
 Пример:
 
 ```go
-text := "GoЯ"
+num, err := strconv.Atoi(text)
+
+if err != nil {
+    return
+}
+
+result := num + 5
+textResult := strconv.Itoa(result)
 ```
+
+Мини-контрольная:
 
 ```text
-Видимых символов: 3
-Байтов UTF-8:      4
+4 / 5
+```
+
+Практика:
+
+```text
+practice/37-strconv
+```
+
+Конспект:
+
+```text
+notes/strconv.md
 ```
 
 ---
 
-## Что нужно дополнительно закрепить
+## `time` 🔄
 
-После последнего контрольного теста основные зоны внимания:
+Текущая тема.
 
-- `append` и сохранение его результата;
-- границы slice;
-- `len(slice)` и последний индекс;
-- `value, ok` у map;
-- порядок выполнения операций;
-- счётчики и накопители;
-- `string[index]`;
-- `byte`;
-- `rune`;
-- UTF-8.
+Уже изучено:
+
+```go
+time.Now()
+time.Time
+time.Duration
+
+time.Second
+time.Minute
+time.Hour
+
+time.Date()
+time.Add()
+time.Sub()
+time.Sleep()
+```
+
+Главная модель:
+
+```text
+time.Time
+→ конкретный момент времени
+→ когда?
+
+time.Duration
+→ временной промежуток
+→ сколько времени?
+```
+
+Примеры:
+
+```go
+now := time.Now()
+```
+
+```go
+future := now.Add(24 * time.Hour)
+```
+
+```go
+duration := end.Sub(start)
+```
+
+Следующий этап — самостоятельная практика.
+
+Практика:
+
+```text
+practice/38-time
+```
+
+Конспект:
+
+```text
+notes/time.md
+```
 
 ---
 
-## Practice
+# Practice
 
 Практические задания находятся в:
 
@@ -286,23 +469,23 @@ text := "GoЯ"
 practice/
 ```
 
-Каждая практика имеет отдельную директорию.
-
-Некоторые из последних практик:
+Последний учебный блок:
 
 ```text
-practice/26-maps
-practice/27-map-count
-practice/28-struct
-practice/29-methods
-practice/30-pointers
-practice/31-strings
 practice/32-strings-check
+practice/33-string-range
+practice/34-string-search
+practice/35-string-replace
+practice/36-strings-package
+practice/37-strconv
+practice/38-time
 ```
+
+Каждая практика должна закреплять одну конкретную идею.
 
 ---
 
-## Notes
+# Notes
 
 Конспекты находятся в:
 
@@ -310,52 +493,68 @@ practice/32-strings-check
 notes/
 ```
 
-Основной накопительный конспект:
+Важные текущие конспекты:
 
 ```text
-notes/all.md
+notes/strings-bytes-runes.md
+notes/byte-rune-UTF-8-len-range
+notes/strings-package.md
+notes/strconv.md
+notes/time.md
 ```
 
-В нём сохраняются изученные конструкции, объяснения и важные замечания.
+Также сохраняются более крупные теоретические материалы и накопительные заметки.
 
 ---
 
-## Repository structure
+# Git workflow
 
-Примерная структура:
+Git является отдельной частью обучения.
+
+Основной цикл:
 
 ```text
-go-learning-notes/
-│
-├── notes/
-│   └── all.md
-│
-├── practice/
-│   ├── ...
-│   ├── 26-maps/
-│   ├── 27-map-count/
-│   ├── 28-struct/
-│   ├── 29-methods/
-│   ├── 30-pointers/
-│   ├── 31-strings/
-│   └── 32-strings-check/
-│
-├── .gitignore
-└── README.md
+working tree
+↓
+git add
+↓
+staging area
+↓
+git commit
+↓
+local repository
+↓
+git push
+↓
+GitHub
 ```
+
+Регулярно используются:
+
+```bash
+git status
+git diff
+git add
+git diff --cached
+git commit
+git log --oneline
+git push
+```
+
+Цель — довести работу с Git до автоматизма вместе с изучением Go.
 
 ---
 
-## Progress tracking
+# Progress tracking
 
-После каждого полноценного урока обновляется статистика:
+После полноценных уроков отслеживаются:
 
 ```text
 Текущая тема
 Прогресс темы
 Go Fundamentals
 Junior Go Backend roadmap
-Общий roadmap
+Полный roadmap
 Результаты практики
 Ошибки
 Сильные стороны
@@ -363,7 +562,7 @@ Junior Go Backend roadmap
 Следующая тема
 ```
 
-Дополнительно оцениваются четыре навыка:
+Дополнительно оцениваются:
 
 ```text
 Knowledge
@@ -376,14 +575,16 @@ Debug
 → могу найти и исправить ошибку
 
 Retention
-→ помню и применяю спустя время
+→ могу вспомнить и применить позже
 ```
 
 ---
 
-## Контрольные проверки
+# Контрольные проверки
 
-Один из последних больших тестов:
+Тестирование используется не ради оценки, а для поиска слабых мест.
+
+Пройден большой тест:
 
 ```text
 50 вопросов
@@ -391,56 +592,62 @@ Retention
 82%
 ```
 
-Тест включал:
+Отдельная контрольная по блоку строк показала слабое понимание `byte / rune / len / range`, после чего тема была полностью повторена и закреплена отдельными тренировочными раундами.
 
-- чтение кода;
-- поиск результата программы;
-- loops;
-- slices;
-- maps;
-- structs;
-- methods;
-- pointers;
-- strings;
-- byte / rune;
-- Bug Hunt элементы.
+Это отражает главный принцип обучения:
 
-Тестирование используется для поиска слабых мест, а не как самоцель.
+```text
+ошибка
+→ определить причину
+→ вернуться к теме
+→ повторить
+→ проверить снова
+→ двигаться дальше
+```
 
 ---
 
-## Roadmap
+# Roadmap
 
-Обучение строится по персональному плану и дополнительно сверяется с roadmap:
+Обучение строится по персональному плану и дополнительно сверяется с:
 
 ```text
 Develp10/golangroadmap2026
 ```
 
-Roadmap используется как карта тем и будущих проектов.
-
-Порядок из roadmap не копируется автоматически: сложные темы добавляются только после того, как подготовлена необходимая база.
-
-Ближайший крупный путь:
+Основной маршрут:
 
 ```text
-Fundamentals
-→ Tooling & Modules
-→ Standard Library
-→ Testing
-→ Concurrency
-→ Web / API
-→ Databases
-→ Backend Projects
+Go Fundamentals
+↓
+Standard Library
+↓
+Errors / Interfaces
+↓
+Testing
+↓
+Concurrency
+↓
+JSON
+↓
+HTTP / REST API
+↓
+SQL / PostgreSQL
+↓
+Docker / Linux
+↓
+Backend Projects
+↓
+Junior Go Backend Developer
 ```
+
+Более сложные темы не добавляются только ради скорости прохождения roadmap. Сначала должна быть подготовлена необходимая база.
 
 ---
 
-## Learning philosophy
+# Learning philosophy
 
-Главная цель этого репозитория — показать реальный путь обучения.
-
-Здесь сохраняются не только правильные решения, но и процесс:
+Главная цель репозитория — сохранить реальный процесс обучения.
 
 ```text
 задача
@@ -448,12 +655,11 @@ Fundamentals
 → ошибка
 → понимание причины
 → исправление
-→ закрепление
+→ повторение
+→ самостоятельное применение
 ```
 
-Ошибки являются частью обучения.
-
-Цель — постепенно перейти от:
+Цель постепенно перейти от:
 
 ```text
 "я понимаю этот код"
@@ -465,28 +671,33 @@ Fundamentals
 "я могу написать этот код самостоятельно"
 ```
 
-а затем к:
+а затем:
 
 ```text
-"я могу спроектировать и написать небольшое приложение самостоятельно"
+"я могу самостоятельно спроектировать и реализовать приложение"
 ```
 
 ---
 
-## Next milestone
+# Next milestone
 
-Ближайшая цель:
+Текущая ближайшая цель:
 
 ```text
-Закрепить:
-string
-byte
-rune
-UTF-8
+Закрыть урок 38 — time
+↓
+os
+↓
+io
+↓
+bufio
+↓
+JSON / HTTP
 ```
 
-После этого продолжить Go Fundamentals и постепенно перейти к первым более крупным CLI-проектам, а затем к backend-разработке.
+После завершения базовой стандартной библиотеки начнётся переход к первым полноценным backend-задачам.
 
 ---
 
-**Status:** Learning in progress.
+**Status:** Learning in progress  
+**Current lesson:** 38 — `time`
