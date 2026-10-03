@@ -546,3 +546,14 @@ time.Duration
 time.Time     → когда?
 time.Duration → сколько?
 ```
+
+## Quick recap
+
+```text
+time.Now()       → текущее время
+time.Date()      → создать конкретную дату
+time.Add()       → прибавить Duration
+time.Sub()       → получить Duration между двумя Time
+
+time.Time        → когда?
+time.Duration    → сколько времени?
