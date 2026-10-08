@@ -1,37 +1,68 @@
-# Go binaries
+# =========================
+# Go build artifacts
+# =========================
+
 *.exe
 *.exe~
 *.dll
 *.so
 *.dylib
 
-# Go test binaries
-*.test
+bin/
 
-# Coverage / profiling
+
+# =========================
+# Go test / coverage
+# =========================
+
+*.test
 *.out
 coverage.*
 *.coverprofile
 profile.cov
 
+
+# =========================
 # Go workspace
+# =========================
+
 go.work
 go.work.sum
 
-# Environment files
+
+# =========================
+# Environment
+# =========================
+
 .env
 .env.*
+!.env.example
 
-# VS Code
+
+# =========================
+# IDE / Editors
+# =========================
+
 .vscode/
-
-# JetBrains IDEs
 .idea/
 
+*.swp
+*.swo
+
+
+# =========================
 # OS files
+# =========================
+
 .DS_Store
 Thumbs.db
+desktop.ini
 
+
+# =========================
 # Temporary files
+# =========================
+
 *.tmp
+*.temp
 *.log
